@@ -37,7 +37,13 @@ export default async (
 
     const { db } = await connect('feed');
 
-
+    const newsAlreadyExists = await db.findOne({title});
+    if (newsAlreadyExists) {
+      res
+        .status(400)
+        .json({ error: `The article ${title} already exists n the database` });
+      return;
+    }
 
 
     const response = await db.insertOne({
@@ -49,14 +55,7 @@ export default async (
     });
 
     res.status(200).json(response.ops[0]);
-  } else if (req.method === 'GET') {
-
-    const { db } = await connect('feed');
-
-    const response:any = await db.find().toArray();
-
-    res.status(200).json(response);
-  } else {
+  }  else {
     res.status(400).json({ error: 'Wrong request method' });
   }
 };

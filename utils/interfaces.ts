@@ -15,3 +15,12 @@ export interface UserSuccessResponseType {
   criterias: string[],
   achievements: string[]
 }
+
+export interface FeedProps {
+  source: string,
+  title: string,
+  link: string,
+  thumbnail: string,
+  pubDate: string,
+
+}
