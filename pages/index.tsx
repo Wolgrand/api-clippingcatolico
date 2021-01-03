@@ -18,7 +18,7 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="/api/update-feed" className={styles.card}>
+          <a href="/api/get-feed" className={styles.card}>
             <h3>API Clipping Católico &rarr;</h3>
             <p>Conheça mais detalhes da api open source criada para alimentar os canais deste projeto.</p>
           </a>
