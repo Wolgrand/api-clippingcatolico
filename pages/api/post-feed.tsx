@@ -26,7 +26,8 @@ export default async (
                 title: feed.title,
                 link: feed.link,
                 thumbnail: thumbnail,
-                pubDate: feed.pubDate
+                pubDate: feed.pubDate,
+                description: feed.description
               })
 
           )
