@@ -24,10 +24,10 @@ export default async (
               .post(process.env.NEXT_PUBLIC_VERCEL_URL + '/api/update-feed', {
                 source: source,
                 title: feed.title,
-                link: feed.link,
+                link: feed.url,
                 thumbnail: thumbnail,
-                pubDate: feed.pubDate,
-                description: feed.description
+                pubDate: feed.date_published,
+                description: feed.content_html
               })
 
           )
@@ -47,25 +47,25 @@ export default async (
     }
 
      spider(
-          "https://api.rss2json.com/v1/api.json?rss_url=https://pt.aleteia.org/feed/",
+          "https://feed2json.org/convert?url=https://pt.aleteia.org/feed/",
           "Aleteia",
           "https://secure.gravatar.com/blavatar/3d32b741af79fa4cf43d6c2fd3dc7ab3?s=96&amp;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png"
         );
 
     spider(
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.vaticannews.va/pt.rss.xml",
+        "https://feed2json.org/convert?url=https://www.vaticannews.va/pt.rss.xml",
         "Vatican News",
         "https://www.vaticannews.va/etc/designs/vatican-news/release/library/main/images/favicons/apple-icon-180x180.png"
       );
 
     spider(
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.acidigital.com/rss/rss.php",
+        "https://feed2json.org/convert?url=https://www.acidigital.com/rss/rss.php",
         "Aci Digital",
         "https://www.acidigital.com/images/acilogo.png"
       );
 
      spider(
-        "https://api.rss2json.com/v1/api.json?rss_url=http://feeds.feedburner.com/churchpopportugues?format=xml",
+        "https://feed2json.org/convert?url=http://feeds.feedburner.com/churchpopportugues?format=xml",
         "Church Pop PT",
         "https://pt.churchpop.com/wp-content/uploads/2014/07/cropped-social-media-icon-2-32x32.png"
       );

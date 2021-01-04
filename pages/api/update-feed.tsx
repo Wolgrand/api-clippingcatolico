@@ -14,12 +14,14 @@ export default async (
       link,
       thumbnail,
       pubDate,
+      description,
     }: {
       source: string;
       title: string;
       link: string;
       thumbnail: string;
       pubDate: number;
+      description:string;
 
     } = req.body;
 
@@ -28,7 +30,8 @@ export default async (
         !title ||
         !link ||
         !thumbnail ||
-        !pubDate
+        !pubDate ||
+        !description
         ) {
         res.status(400).json({ error: 'Missing body parameter' });
         return;
@@ -52,6 +55,7 @@ export default async (
       link,
       thumbnail,
       pubDate,
+      description
     });
 
     res.status(200).json(response.ops[0]);

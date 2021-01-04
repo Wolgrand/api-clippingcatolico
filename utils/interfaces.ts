@@ -19,10 +19,10 @@ export interface UserSuccessResponseType {
 export interface FeedProps {
   source: string,
   title: string,
-  link: string,
+  url: string,
   thumbnail: string,
-  pubDate: string,
-  description: string,
+  date_published: string,
+  content_html: string,
 
 }
 
