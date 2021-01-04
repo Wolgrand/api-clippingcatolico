@@ -25,3 +25,9 @@ export interface FeedProps {
   description: string,
 
 }
+
+export interface FeedPropsArray {
+  feed: FeedProps[],
+
+
+}

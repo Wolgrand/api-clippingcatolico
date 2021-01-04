@@ -19,7 +19,7 @@ export default async (
         const data = fetch(url)
         .then(res => res.json())
         .then(json =>
-          json.items.map((feed) =>
+          json.items.map((feed:FeedProps) =>
             axios
               .post(process.env.NEXT_PUBLIC_VERCEL_URL + '/api/update-feed', {
                 source: source,
