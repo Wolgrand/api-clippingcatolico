@@ -22,5 +22,6 @@ export interface FeedProps {
   link: string,
   thumbnail: string,
   pubDate: string,
+  description: string,
 
 }

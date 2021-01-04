@@ -11,12 +11,15 @@ export default async (
 
   if (req.method === 'POST') {
 
+    const url = process.env.NEXT_PUBLIC_VERCEL_URL + '/api/update-feed';
+    console.log(url);
+
     const  spider = (url: string, source: string, thumbnail: string) => {
       try {
         const data = fetch(url)
         .then(res => res.json())
         .then(json =>
-          json.items.map(({feed}:any) =>
+          json.items.map((feed) =>
             axios
               .post(process.env.NEXT_PUBLIC_VERCEL_URL + '/api/update-feed', {
                 source: source,
@@ -33,10 +36,10 @@ export default async (
 
         })
         .catch(error => {
-          console.error("Erro " + source + " " + new Date());
+          console.error("Erro " + source + " " + error);
         })
       } catch (error) {
-        console.error("Erro " + source + " " + new Date());
+        console.error("Erro " + source + " " + error);
       }
 
 
