@@ -30,6 +30,10 @@ export default function Home() {
             <h3>Alexa Skill  &rarr;</h3>
             <p>Ouças as notícias em seu dispositivo Amazon com a Alexa.</p>
           </a>
+          <a href="/terms" className={styles.card}>
+            <h3>Termos  &rarr;</h3>
+            <p>Acesse os termos de uso do serviço.</p>
+          </a>
         </div>
 
 

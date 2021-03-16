@@ -31,3 +31,26 @@ export interface FeedPropsArray {
 
 
 }
+
+export interface ResponseProps {
+
+    version: string,
+    title: string,
+    home_page_url: string,
+    description: string,
+    items: [
+      {
+        guid: string,
+        url: string,
+        title: string,
+        content_html: string,
+        summary: string,
+        date_published: Date,
+        author: string
+      }
+    ]
+  }
+
+export interface ResponsePropsArray {
+  jsonData: ResponseProps[],
+}
