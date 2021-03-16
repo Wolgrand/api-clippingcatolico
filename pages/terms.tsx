@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css'
 
 export default function Terms() {
   return (
-    <div className="w-screen h-screen overflow-hidden">
+    <div className="w-screen h-auto p-5 overflow-auto">
 
       <main className="p-4">
         <h1 className={styles.title}>
