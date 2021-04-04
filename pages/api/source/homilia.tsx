@@ -6,6 +6,13 @@ import Parser from 'rss-parser';
 type CustomFeed = {foo: string, baz:any};
 type CustomItem = {bar: number};
 
+interface ItemProps{
+  title: string,
+  link: string,
+  description: string,
+
+}
+
 export default async (
   req: NextApiRequest,
   res: NextApiResponse
@@ -17,7 +24,7 @@ export default async (
       customFields: {
         feed: ['foo', 'baz'],
         //            ^ will error because `baz` is not a key of CustomFeed
-        item: ['bar']
+        item: ['bar'],
       }
     });
 
@@ -30,11 +37,15 @@ export default async (
 
       const list = feed.items.map(item=> new Object({
         title: item.title,
-        link: item.link
+        link: item.link,
+        description: item.contentSnippet,
       }))
 
+      const lastHomilia:any = list[0]
+      const modifiedItem = lastHomilia.description.replace('[Multimídia]', '')
 
-      res.status(200).json((list).slice(0,10));
+      console.log(lastHomilia.description)
+      res.status(200).json(modifiedItem);
     })();
 
 
